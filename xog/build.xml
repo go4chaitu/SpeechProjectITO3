@@ -1,0 +1,293 @@
+<?xml version="1.0"?>
+<project name="xog" default="build" basedir="."
+         xmlns:macros-build="macros:platform.infrastructure.devenv.macros-build"
+         xmlns:macros-install="macros:platform.infrastructure.devenv.macros-install">
+
+  <taskdef name="fileiter" classname="com.niku.tools.taskdefs.FileIterTask"/>
+
+  <property file="../ant.properties"/>
+  <property name="dir.build" location="${basedir}/../" />
+  <import file="../union/gen.xml" />
+  <property name="currentComponent" value="xog"/>
+  <property name="componentTitle" value="Xml Open Gateway"/>
+
+  <import file="../tools/scripts/build.macros.xml"/>
+  <import file="../infrastructure/devenv/std-build.xml"/>
+
+  <path id="lib.path">
+    <fileset dir="../ext/lib" includes="*.jar"/>
+    <fileset dir="../ext/build/lib" includes="*.jar"/>
+    <path refid="path.cade.ant"/>
+    <path refid="path.legacy.xmlsrv"/>
+    <path refid="path.legacy.union"/>
+    <path refid="path.legacy.xql2"/>
+    <path refid="path.platform.ext.httpclient"/>
+    <path refid="path.legacy.xdm"/>
+    <path refid="path.legacy.dom"/>
+    <path refid="path.legacy.dms"/>
+    <path refid="path.legacy.schedulers"/>
+    <path refid="path.legacy.security"/>
+    <path refid="path.platform.osf.object"/>
+    <path refid="path.legacy.dbtools"/>
+  </path>
+
+  <path id="classpath.compile.src">
+    <fileset dir="../ext/lib" includes="*.jar"/>
+    <fileset dir="../ext/build/lib" includes="*.jar"/>
+    <path refid="path.cade.ant"/>
+    <path refid="path.legacy.xmlsrv"/>
+    <path refid="path.legacy.union"/>
+    <path refid="path.legacy.xql2"/>
+    <path refid="path.legacy.xdm"/>
+    <path refid="path.legacy.dom"/>
+    <path refid="path.legacy.dms"/>
+    <path refid="path.legacy.schedulers"/>
+    <path refid="path.legacy.security"/>
+    <path refid="path.platform.osf.object"/>
+    <path refid="path.legacy.dbtools"/>
+    <path refid="path.platform.ext.google.odata"/>
+  </path>
+
+  <path id="classpath.compile.test">
+    <path refid="classpath.compile.src" />
+    <path refid="path.cade.testing.compile" />
+    <path refid="path.legacy.union.test"/>
+    <path refid="path.legacy.nsa"/>
+    <path refid="path.legacy.xql2"/>
+    <path refid="path.legacy.xql2.test"/>
+    <path refid="path.platform.infrastructure.testing"/>
+    <path refid="path.platform.infrastructure.testing.impl"/>
+    <path refid="path.platform.osf.service"/>
+    <path refid="path.legacy.xog"/>
+    <pathelement path="build/classes"/>
+  </path>
+
+  <path id="classpath.execute.tests">
+    <path refid="classpath.compile.test"/>
+    <path refid="classpath.platform.execute.tests"/>
+    <path refid="path.platform.infrastructure.testing.impl.test"/>
+    <path refid="path.legacy.xog.test"/>
+    <pathelement path="test/xml"/>
+  </path>
+
+  <target name="javadoc">
+    <javadoc_component component="xog" title="XML Open Gateway"/>
+  </target>
+
+  <property file="../clarity/version.properties" prefix="release"/>
+
+  <target name="src-compile" depends="gen-dm,copy-catalog,copy-xbl,src-gen,std-build.src-compile">
+    <gen-src-diff classOutDir="build/classes"/>
+<!--    <osfscan component="xog"/> -->
+  </target>
+
+  <target name="src-gen">
+    <echo message="version=${release.version}" file="build/classes/xog.properties"/>
+    <gen-src-diff classOutDir="build/classes"/>
+    <!-- <osfscan component="xog"/> -->
+  </target>
+
+  <target name="copy-xbl">
+    <copy todir="build/classes">
+      <fileset dir="src/webroot/WEB-INF/xog/xql">
+        <include name="**/*.xql"/>
+        <include name="**/*.xbl"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="copy-catalog">
+    <copy todir="build/classes">
+      <fileset dir="src/webroot/WEB-INF/xog/config">
+        <include name="catalog.xml"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="gen-dm" description="Generates Java files from dminput_types.xsd">
+    <delete dir="src/java/com/niku/xog/export/schema"/>
+    <genCastor path="src/webroot/WEB-INF/xog/xsd" name="dminput_types.xsd" package="com.niku.xog.export.schema"/>
+    <!--<genCastor path="bin" name="DependencyTree.xsd" package="com.niku.xog.export.schema"/>    -->
+  </target>
+
+  <target name="run">
+    <ant antfile="xog.xml" target="run"/>
+  </target>
+  <target name="applyXog">
+    <ant antfile="xog.xml" target="applyXog"/>
+  </target>
+  <target name="applyXogSeeddata">
+    <ant antfile="xog.xml" target="applyXogSeeddata"/>
+  </target>
+
+  <target name="build-client" depends="jar,zip-client"/>
+
+  <target name="copyxsd" description="Copy union xsd to xog to allow useBuildDir for xog component.">
+    <copy todir="src/webroot/WEB-INF/xog/xsd">
+      <fileset dir="../union/src/META-INF/union/xsd"/>
+    </copy>
+  </target>
+
+  <target name="test">
+    <ant antfile="coverage.xml" target="test"/>
+  </target>
+
+  <target name="copy-files">
+    <copy todir="${install.dir}/webroot/WEB-INF/xog/xsd">
+      <fileset dir="../union/src/META-INF/union/xsd"/>
+    </copy>
+    <copy todir="${install.dir}/bin">
+      <fileset dir="src/bin"/>
+    </copy>
+    <fixcrlf eol="unix" srcdir="${install.dir}/bin" includes="xog"/>
+
+    <copy todir="${install.dir}/webroot/XOG">
+      <fileset dir="src/webroot/XOG" includes="*.*"/>
+      <fileset dir="build/artifacts/jars" includes="xogclient.zip"/>
+    </copy>
+  </target>
+
+  <target name="install" depends="zip-client,copy-files,std-build.install"/>
+
+  <target name="zip-client"  description="creates client zip file for installer">
+    <!-- build and zip the xogclient zip -->
+    <mkdir dir="temp/build"/>
+
+    <copy todir="temp/build/xml">
+      <fileset dir="test/xml"
+               includes="cmn_users_read.xml,cmn_users_write.xml,content_pack_read.xml,content_pack_write.xml,cview_read.xml,cview_write.xml,gg_queries_read.xml,gg_queries_write.xml,menus_read.xml,menus_write.xml,olts_timeperiods_read.xml,pages_read.xml,pages_write.xml,portlets_read.xml,portlets_write.xml,prj_chargecodes_read.xml,prj_programs_read.xml,prj_programs_write.xml,prj_timeperiods_read.xml,prj_timeperiods_write.xml,prj_typecodes_read.xml,roles_write.xml,rsm_resources_read.xml,rsm_resources_write.xml,statussample.xml,documents_read.xml,documents_write.xml,pac_glaccount_write.xml,documents_write_ext.xml,inv_supportactivity_read.xml,inv_supportactivity_write.xml,notification_read.xml,notification_write.xml,processnotification_read.xml,processnotification_write.xml,portfolio_read.xml,portfolio_write.xml,ideas_write.xml,ideas_read.xml, pfm_portfolio_read.xml"/>
+      <fileset dir="../projmgr/test/xml"
+               includes="caplan_scenarios_read.xml,caplan_scenarios_write.xml,inv_applications_read.xml,inv_applications_write.xml,inv_assets_read.xml,inv_assets_write.xml,inv_others_read.xml,inv_others_write.xml,inv_products_read.xml,inv_products_write.xml,prj_projects_read.xml,prj_projects_write.xml,prj_projects_alloc_act_etc_read.xml,prj_projects_alloc_act_etc_write.xml,prj_projects_assignment_role_write.xml,prj_projects_baseline_create.xml,prj_projects_baselines_read.xml,prj_projects_layout_default_write.xml,prj_projects_task_estimate_create.xml,prj_projects_wbs_deps_write.xml,prj_projects_wbs_deps_read.xml,prj_projects_from_template_write.xml"/>
+      <fileset dir="../njs/test/xml" includes="cmn_sch_job_definitions_read.xml,cmn_sch_job_definitions_write.xml"/>
+      <fileset dir="../npt/test/xml"
+               includes="menus_read.xml,menus_write.xml,pages_read.xml,pages_write.xml,portlets_read.xml,portlets_write.xml,qgg_queries_read.xml,qgg_queries_write.xml"/>
+      <fileset dir="../osf/object/test/xml"
+               includes="object_read.xml,object_write.xml,property_view_read.xml,property_view_write.xml,list_view_read.xml,list_view_write.xml,custom_object_instances_write.xml,custom_object_instances_read.xml,custom_object_read.xml,custom_object_write.xml"/>
+      <fileset dir="../bpm/test/xml"
+               includes="bpm_processes_read.xml,bpm_processes_write.xml"/>
+      <fileset dir="../itl/test/xml"
+               includes="issue_read.xml,issue_write.xml,risk_read.xml,risk_write.xml,change_read.xml,change_write.xml,incident_read.xml,incident_write.xml,category_read.xml,category_write.xml"/>
+      <fileset dir="../nmc/test/xml" includes="groups_read.xml,groups_write.xml,obs_write.xml,obs_read.xml"/>
+      <fileset dir="../resource/test/xml" includes="rsm_skills_read.xml,rsm_skills_write.xml,roles_read.xml,requisitions_read.xml,requisitions_write.xml"/>
+      <fileset dir="../revmgr/test/xml"
+               includes="matrices_write.xml,matrices_read.xml,costPlusCodes_write.xml,costPlusCodes_read.xml,department_read.xml,department_write.xml,locations_read.xml,locations_write.xml,entity_read.xml,entity_write.xml,transactionclass_read.xml,transactionclass_write.xml,resourceclass_read.xml,resourceclass_write.xml,costPlan_read.xml,costPlan_write.xml,budgetPlan_read.xml,budgetPlan_write.xml,benefitPlan_read.xml,benefitPlan_write.xml,cbk_allocation_read.xml,cbk_allocations_write.xml,cbk_gl_account_read.xml,cbk_gl_accounts_write.xml,biz_companies_read.xml,biz_companies_write.xml,imp_transactions_read.xml,imp_transactions_write.xml,pac_artransactions_read.xml,wipClass_read.xml,wipClass_write.xml,companyClass_read.xml,companyClass_write.xml,vendor_read.xml,vendor_write.xml,investmentClass_read.xml,investmentClass_write.xml"/>
+      <fileset dir="../service/test/xml"
+               includes="inv_services_read.xml,inv_services_write.xml"/>
+      <fileset dir="../timeadmin/test/xml"
+               includes="prj_typecodes_write.xml,prj_chargecodes_write.xml,prj_chargecodes_read.xml,prj_typecodes_read.xml"/>
+      <fileset dir="../rqrmnt/test/xml" includes="requirements_write.xml,requirements_read.xml,releases_write.xml,releases_read.xml,release_plans_write.xml,release_plans_read.xml"/>
+      <fileset dir="../uif/test/xml" includes="cmn_ui_themes_read.xml,cmn_ui_themes_write.xml"/>
+    </copy>
+
+    <copy tofile="temp/build/test.properties" file="bin/test_header.properties" overwrite="true"/>
+    <echo file="temp/build/test.properties" append="true">
+      # --- leave the one you want to test un-commented and comment out all other input entries
+    </echo>
+    <fileiter>
+      <fileset dir="temp/build/xml"/>
+      <macro>
+        <attribute name="path"/>
+        <sequential>
+          <echo file="temp/build/test.properties" append="true">
+            #input=../xml/@{path}</echo>
+        </sequential>
+      </macro>
+    </fileiter>
+
+    <copy todir="build/temp/bin">
+      <fileset dir="src/bin"/>
+    </copy>
+    <copy todir="build/temp/bin">
+      <fileset dir="../union/src/bin"/>
+    </copy>
+    <fixcrlf eol="unix" srcdir="build/temp/bin" includes="gel,xog"/>
+    <zip zipfile="build/artifacts/jars/xogclient.zip">
+      <zipfileset dir="build/artifacts/jars" includes="xog.jar" prefix="lib"/>
+      <zipfileset dir="../ext/lib"
+                  includes="forehead.jar,soap.jar,xercesImpl.jar,xml-apis.jar,mail.jar,activation.jar,saxon.jar,castor.jar"
+                  prefix="lib"/>
+      <zipfileset dir="../ext/lib" includes="commons*,log4j.jar,jdom.jar,dom4j.jar,jaxen*,saxpath.jar" prefix="lib"/>
+      <zipfileset dir="../ext/common/build/dependency_artifacts/rsa/bsafe/jars" includes="cryptojcommon.jar,jcmFIPS.jar,cryptojce.jar" prefix="lib"/>
+      <zipfileset dir="../union/build/artifacts/jars" includes="union.jar" prefix="lib"/>
+      <zipfileset dir="../clarity" includes="version.properties" prefix="bin"/>
+      <zipfileset dir="../xmlsrv/lib" includes="xmlserver.jar" prefix="lib"/>
+      <zipfileset dir="build/temp/bin" includes="*" prefix="bin"/>
+      <zipfileset dir="temp/build" includes="test.properties" prefix="bin"/>
+      <zipfileset dir="temp/build/xml" prefix="xml"/>
+      <zipfileset dir="" includes="*.wsdl" prefix="wsdl/1.0"/>
+      <zipfileset dir="src/webroot/WEB-INF/xog/xsd" includes="*.xsd"
+                  excludes="catalog.xsd,nikuxog_gltransaction.xsd,nikuxog_glperiod.xsd" prefix="xsd"/>
+      <zipfileset dir="../union/src/META-INF/union/xsd" includes="*.xsd" prefix="xsd"/>
+    </zip>
+
+    <delete dir="temp/build"/>
+  </target>
+
+  <target name="test-deploy" depends="std-build.test-deploy">
+    <macros-install:apply-xog-as-user in="test/xml/xog_security_users_write.xml" out="build/temp/xog_security_users_write_out.xml" user="testinstall"/>
+    <!-- Update the password for test users -->
+    <macros-install:applyFileToSchema in="test/schema/Seeddata/UPDATE_PASSWORD.xml"/>
+    <!-- Make xog.client active to keep all the developers happy -->
+    <xpath file="${install.dir}/META-INF/xog/wmd/xog.xml">
+      <namespace name="web" uri="http://schemas.niku.com/2002/web"/>
+      <apply parent="//web:page">
+        <element name="pageAction" select="web:pageAction[@id = 'xog.client']">
+          <attribute name="active" value="true"/>
+        </element>
+      </apply>
+    </xpath>
+
+  </target>
+
+  <target name="test-install">
+    <property name="tenantId" value="clarity"/>
+
+    <path id="lib.path">
+      <fileset dir="${install.dir}/lib" includes="*.jar"/>
+    </path>
+    <java classname="com.niku.dbtools.Utilities" classpathref="lib.path" fork="true" failonerror="true">
+      <arg line="-installDir"/>
+      <arg file="${install.dir}"/>
+      <arg line="-install -file"/>
+      <arg file="test/schema/ACCESSRIGHTS.xml"/>
+      <arg line="-apply"/>
+      <arg line="-tenantId ${tenantId}"/>
+    </java>
+    <java classname="com.niku.dbtools.Utilities" classpathref="lib.path" fork="true" failonerror="true">
+      <arg line="-installDir"/>
+      <arg file="${install.dir}"/>
+      <arg line="-install -file"/>
+      <arg file="test/schema/Seeddata/PRJ_OBS_OBJECT_TYPES.xml"/>
+      <arg line="-apply"/>
+      <arg line="-tenantId ${tenantId}"/>
+    </java>
+    <property name="parentDir" location=".."/>
+    <mkdir dir="temp/xml"/>
+    <xpath file="test/xml/documents_write_ext.xml" tofile="temp/xml/documents_write_ext.xml">
+      <apply parent="/NikuDataBus/Documents">
+        <element name="Parent" select="Parent[@parentObjectId=1010]">
+          <attribute name="documentLocation" value="${parentDir}/xog/test/documentXogLocation/ExternalSystemDocs"/>
+        </element>
+      </apply>
+    </xpath>
+    <xpath file="test/xml/documents_read.xml" toFile="temp/xml/documents_read.xml">
+      <apply parent="/NikuDataBus/Header">
+        <element name="args" select="args[@name='documentLocation']">
+          <attribute name="value" value="${parentDir}/xog/test/documentXogLocation"/>
+        </element>
+      </apply>
+    </xpath>
+    <xpath file="test/xml/documents_write.xml" tofile="temp/xml/documents_write.xml">
+      <apply parent="/NikuDataBus/Documents">
+        <element name="Parent" select="Parent[@parentObjectId=1010]">
+          <attribute name="documentLocation" value="${parentDir}/xog/test/documentXogLocation"/>
+        </element>
+      </apply>
+    </xpath>
+    <!-- XOG in test DM user -->
+    <macros-install:apply-xog-as-user in="test/xog/test_users.xml" out="build/temp/test_users_out.xml" user="testinstall"/>
+    <!-- Update the password for test users -->
+    <macros-install:applyFileToSchema in="test/schema/Seeddata/UPDATE_PASSWORD.xml"/>
+  </target>
+
+</project>

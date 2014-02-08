@@ -1,0 +1,397 @@
+<html lang="en-US">
+	<head>
+	<link rel="SHORTCUT ICON" href="http://sarch04/niku/ui/uitk/images/shortcut.ico">
+	<style type="text/css" id="ppm_theme_css">
+	
+/* The Default Clarity theme */
+
+/* The main page background color */
+.ppm_page_bg {
+  background: #04152d;
+  background: -webkit-gradient(radial,50% 10, 1, 50% 100, 600, from(#052E5F), to(#04152D ));
+  background: -moz-radial-gradient(50% 10% 0deg,ellipse contain, #052E5F, #04152D);
+}
+
+
+/* Clarity PPM Logo */
+#ppm_login_logo {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAWCAYAAACosj4+AAABw0lEQVRIx62Wv0rFMBTGOzkJdnUrF9wuEgRRECHo4ODSwcExs1M2F8Fu4hScBBWLi25WfIFurn2EPkIfIZ7IuVDS/DnpNfDBpcnN+fXkyznNMs/YuP7hIAXqQNpSi3PF+D+Hb4sSpEAtSFsa8LkE5Rl1QBCGATVRNXs6FhCkd0D4ZOAqCowADQkwf9q6/dD7r0udALSSyiJHpOfKQM0AMipcMDkhM2a+D63ZeRB2sHZWlmCzKhDImJqP1hYeo6+yZPwhLLPLAFDrAgplp/Bk1LnehhlBtSSgiHeagOcU3kZbzANUUYFCx1VlMwYEYViTKlQTKAsToDoAJBMgBAZOvWUToFAR5ASQMrEorgVURmAkIWCPhiYfWTPHQ7ARj0DIcdH7L1OrAJDPL42reaYAlQGg3ge093Lgy07ueQFFBcojLUO4mvDy8dy1eeeByckeIlx9jcfKUeb34AEyYg6gOrV1FKndfaGuQt86Ek1fEhps62sFMgVo8+Zbr1F7osc87k9kqO27+6TAvrnLr7McVIGYC6qMffeMbyF7PuoIMA0a2zl/8XliYDpQHfucbRxwPT4XkT424DNu1aKJTt93GWaI/wJ/NIHZHSMBAgAAAABJRU5ErkJggg==);
+  margin: 6px 0px 0px 15px;
+  width: 36px;
+  height: 22px;
+}
+.ppm_login_box {
+  background-color: #fff;
+  background: -moz-linear-gradient(#ffffff, #e2e2e2);
+  background: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#e2e2e2));
+  background: linear-gradient(#ffffff, #e2e2e2);
+  -pie-background: linear-gradient(#ffffff, #e2e2e2);
+  padding: 38px 38px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  -moz-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+  behavior: url( ui/ext/pie.htc );
+  -pie-poll: false;
+  position: relative;
+}
+
+.ppm_login_box_text {
+  background-color: #fff;
+  background: -moz-linear-gradient(#ffffff, #e2e2e2);
+  background: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#e2e2e2));
+  background: linear-gradient(#ffffff, #e2e2e2);
+  -pie-background: linear-gradient(#ffffff, #e2e2e2);
+  padding: 10px 10px;
+  -webkit-border-radius: 1px 1px 1px 1px;
+  -moz-border-radius: 1px 1px 1px 1px;
+  border-radius: 1px 1px 1px 1px;
+  behavior: url( ui/ext/pie.htc );
+  -pie-poll: false;
+  position: relative;
+}
+.ppm_td1_box {
+  background-color: #aaa;
+  background: -moz-linear-gradient(#ffffff, #e2e2e2);
+  background: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#e2e2e2));
+  background: linear-gradient(#ffffff, #e2e2e2);
+  -pie-background: linear-gradient(#ffffff, #e2e2e2);
+  padding: 38px 38px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  -moz-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+  behavior: url( ui/ext/pie.htc );
+  -pie-poll: false;
+  position: relative;
+}
+.ppm_td2_box {
+  background-color: #bbb;
+  background: -moz-linear-gradient(#ffffff, #e2e2e2);
+  background: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#e2e2e2));
+  background: linear-gradient(#ffffff, #e2e2e2);
+  -pie-background: linear-gradient(#ffffff, #e2e2e2);
+  padding: 38px 38px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  -moz-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+  behavior: url( ui/ext/pie.htc );
+  -pie-poll: false;
+  position: relative;
+}
+/* Style for Login Title */
+.ppm_login_title {
+  font-family: Verdana, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 17px;
+  color: #0088CC;
+  padding-bottom: 18px;
+}
+
+/* Style for Product Name at login page */
+.ppm_login_product {
+  color: #fff;
+  font-size: 26px;
+  font-weight: bold;
+  font-family: Calibri, Arial, Verdana;
+  margin-left: 20px;
+  vertical-align: middle;
+}
+
+/* Style for Product Name at login page */
+.ppm_login_product_result {
+  color: #04152d;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Calibri, Arial, Verdana;
+  margin-left: 20px;
+  vertical-align: middle;
+}
+
+/* Style for copyright */
+.ppm_login_copyright {
+  color: #fff;
+  font-size: 11px;
+  font-family: Verdana, Arial, sans-serif;
+  margin: 8px 5px 0px 0px;
+  text-align: right;
+}
+
+input.speechbutton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    height: 20px;
+    width: 20px;
+    margin-left: 30px;
+    -webkit-transform: scale(3.0, 1.0);
+}
+	tr.d0 td {
+    background-color: #CC9999; color: black;
+	}
+	tr.d1 td {
+		background-color: #9999CC; color: black;
+	}
+	thead.d2 th {
+		background-color: #7777DD; color: black;
+	}
+	
+	.scrollit {
+    overflow-x: hidden;
+    overflow-y: auto;
+    white-space: nowrap;
+    height:300px;
+}
+      </style>
+	<title> Speak Clarity </title>
+	<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+	<script src="http://sarch04/niku/speakClient.js"></script>
+		
+		<script>
+			var question;
+			var data;
+			
+			function transcribe(words) 
+			{
+				if( words.toUpperCase() != "WHO ARE YOU")
+				{
+				document.getElementById("speech").value = words;
+				document.getElementById("mic").value = "";
+				document.getElementById("speech").focus();
+				question = words.split(" ").join("%20");
+				getResults();
+				getPlotData();
+				if (typeof(data.response_status) == 'undefined' || data.response_status == null)
+				{
+					if(data.length >0 )
+					{
+						plotPieChart();
+					}
+					else
+					{
+						var myNode = document.getElementById("resultschart");
+						while (myNode.firstChild) {
+							myNode.removeChild(myNode.firstChild);
+						}
+					}
+				}
+				else
+					{
+						var myNode = document.getElementById("resultschart");
+						while (myNode.firstChild) {
+							myNode.removeChild(myNode.firstChild);
+						}
+					}
+				
+				updateTable();
+				question = null;
+				data = null;
+				}
+				else
+				{
+				document.getElementById("speech").value = words;
+				document.getElementById("mic").value = "";
+				document.getElementById("speech").focus();
+					document.getElementById("resulttable").className = "ppm_login_box_text";
+					$('#results').html("I am Ciri Clarity Siri I am here to help you Please ask your question");
+					speak("I am Keeree Clarity seeree I am here to help you Please ask your question",{amplitude:200,wordgap:5,speed:150});
+				}
+			}
+			 
+			function getResults()
+			{
+				$.ajax( 
+				{
+					"url": "http://sarch04/niku/ai/getReportData?speechText="+question+"&type=1",
+					"success": function ( response ) 
+					{
+						document.getElementById("resulttable").className = "ppm_login_box_text";
+						if(response.length >0 )
+						{
+						
+						$('#results').html(response);
+						speak(response);
+						}
+						else
+						{
+							$('#results').html("I didnt get you, Please correct your question");
+							speak("I did not get you Please correct your question",{amplitude:200,wordgap:5,speed:150});
+						}
+					},
+					"dataType": "json"
+				} );
+			}
+			function updateTable()
+			{
+                $.ajax( 
+				{
+					"url": "http://sarch04/niku/ai/getReportData?speechText="+question+"&type=2",
+					"success": function ( response ) 
+					{
+						if (response.length !=0)
+						{
+							document.getElementById("resultsdatatable").className = "ppm_login_box";
+							document.getElementById("scrollit").className = "scrollit";
+							var newTable = '<thead class="d2"><tr ><th>Code</th><th>Name</th><th>Status</th></tr></thead><tbody>';
+							for (var i = 0, len = response.data.length; i < len; i++) 
+							{
+								if( i%2 == 0)
+								{
+									newTable += "<tr class='d1'>";
+								}
+								else
+								{
+									newTable += "<tr class='d0'>";
+								}
+								newTable += "<td width='20%'>" + response.data[i].unique_code + "</td>";
+								newTable += "<td width='60%'>" + response.data[i].name + "</td>";
+								newTable += "<td width='20%'>" + response.data[i].status_indicator + "</td>";
+								newTable += "</tr>";
+							}
+							newTable += '</tbody>';
+							
+							$('#resultsdatatable').html(newTable);
+						}
+						else
+						{
+							var myNode = document.getElementById("resultsdatatable");
+							myNode.className = "";
+							document.getElementById("scrollit").className = "";
+							
+						while (myNode.firstChild) {
+							myNode.removeChild(myNode.firstChild);
+						}
+						}
+					},
+					"dataType": "json"
+				} );
+               $('#resultsdatatable').dataTable();  
+            }
+			
+			function getPlotData()
+			{
+				$.ajax( 
+				{
+					"url": "http://sarch04/niku/ai/getReportData?speechText="+question+"&type=3",
+					"success": function ( response ) 
+					{
+						data = response;
+					},
+					"error": function( response )
+					{
+						
+					},
+					async : false,
+					"dataType": "json"
+				} );
+			}
+			function plotPieChart()
+			{
+				var width = 500,
+					height = 300,
+					radius = Math.min(width, height) / 2;
+
+				var color = d3.scale.ordinal()
+					.range(["yellow", "red", "green", "white", "orange", "#ff743c", "#aa8c00"]);
+
+				var arc = d3.svg.arc()
+					.outerRadius(radius - 10)
+					.innerRadius(0);
+
+				var pie = d3.layout.pie()
+					.sort(null)
+					.value(function(d) { return d.value; });
+				
+				var myNode = document.getElementById("resultschart");
+				while (myNode.firstChild) {
+					myNode.removeChild(myNode.firstChild);
+				}
+				var svg = d3.select("#resultschart").append("svg")
+					.attr("width", width)
+					.attr("height", height)
+				  .append("g")
+					.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+
+				  data.forEach(function(d) {
+					d.value = +d.value;
+				  });
+
+				  var g = svg.selectAll(".arc")
+					  .data(pie(data))
+					.enter().append("g")
+					  .attr("class", "arc");
+
+				  g.append("path")
+					  .attr("d", arc)
+					  .style("fill", function(d) { return color(d.data.label); });
+
+				  g.append("text")
+					  .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+					  .attr("dy", ".35em")
+					  .style("text-anchor", "middle")
+					  .text(function(d) { return d.data.label; });
+							}
+		</script>
+	</head>
+	<body class=" x-contrast ext-webkit ext-chrome ext-windows">
+		<div class="ppm_page_bg" style="position:relative; height:755">
+		<p>
+		
+		<table align="center">
+			<tr>
+				<td>
+					<div style="margin: 0px 0px 9px 5px;"><img src="ui/uitk/images/s.gif" id="ppm_login_logo" style="margin: auto; vertical-align: middle" alt="CA">
+						<span class="ppm_login_product">CA Clarity™ PPM</span>
+					</div>
+				</td>
+			</tr>
+		</table>
+		
+		
+		<table class="ppm_login_box" align="center">
+			<tr>
+				<td  colspan="2">     </td>
+			</tr>
+			<tr size="100%">
+				<td> 
+					<input type="text" id="speech" size="70%" style="font:20px;height:35px;color:#aaa " readonly value="Click the microphone icon and talk"></input>
+				</td>
+				<td align="center">
+					<div style="position: relative;">
+						<img src="ui/uitk/images/mic.png" />
+						<input id="mic" class="speechbutton" type="text" value="" style="position: relative;left: -50;-webkit-transform: scale(2.0, 3.0);" x-webkit-speech onwebkitspeechchange="transcribe(this.value)"/>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<br><br>
+		<table id="resulttable" align="center">
+			<tr>
+				<td style="min-width: 800px;">
+					<span id="results" class="ppm_login_product_result"></span>
+				</td>
+			</tr>
+		</table>
+		
+		<br><br><br><br>
+		<table width="100%" style="margin-left:5em">
+			<tr>
+				<td width="40%">
+				<div id="scrollit">
+					<table id="resultsdatatable" style="max-height: 400px; overflow-y: scroll;"> </table>
+				</div>
+				</td>
+				<td width="10%">
+				</td>
+				<td>
+					<table id="resultschart"> </table>
+				</td>
+			</tr>
+		</table>
+		</div>
+		<div id="audio"></div>
+	</body>
+</html>

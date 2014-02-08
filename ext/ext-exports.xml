@@ -1,0 +1,577 @@
+<project name="ext-exports">
+  <!--
+    This file contains the properties and paths exported by this module set to all modules within the platform build.
+  -->
+
+  <property name="dir.platform.ext"
+            value="${dir.build}/ext"/>
+
+  <!-- Note: these are not quite alpha-sorted because they depend on each other -->
+  <property name="dir.platform.ext.common"
+            value="${dir.platform.ext}/common"/>
+  <property name="dir.platform.ext.common.apache"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/apache"/>
+  <property name="dir.platform.ext.common.google"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/google"/>
+  <property name="dir.platform.ext.common.sencha"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/sencha"/>
+  <property name="dir.platform.ext.common.yahoo"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/yahoo"/>
+  <property name="dir.platform.ext.common.ca"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/ca"/>
+  <property name="dir.platform.ext.common.apache.tomcat"
+            value="${dir.platform.ext.common.apache}/tomcat"/>
+  <property name="dir.platform.ext.common.ant"
+            value="${dir.platform.ext.common.apache}/ant/jars"/>
+  <property name="dir.platform.ext.common.batik"
+            value="${dir.platform.ext.common.apache}/batik/jars"/>
+  <property name="dir.platform.ext.common.apache.cordova"
+            value="${dir.platform.ext.common.apache}/cordova"/>
+
+  <property name="dir.platform.ext.common.codehaus"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/codehaus"/>
+  <property name="dir.platform.ext.common.database-driver"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/ca/database-driver/jars"/>
+  <property name="dir.platform.ext.common.eclipse"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/eclipse"/>
+  <property name="dir.platform.ext.common.jdom"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/jdom"/> 
+  <property name="dir.platform.ext.common.json"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/json"/>
+  <property name="dir.platform.ext.common.mozilla"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/mozilla"/>
+  <property name="dir.platform.ext.common.opensymphony"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/opensymphony"/>
+  <property name="dir.platform.ext.common.rsa"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/rsa"/>
+  <property name="dir.platform.ext.common.singular"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/singular"/>
+  <property name="dir.platform.ext.common.sourceforge"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/sourceforge"/>
+  <property name="dir.platform.ext.common.saxon"
+            value="${dir.platform.ext.common.sourceforge}/saxon/jars"/>
+  <property name="dir.platform.ext.common.sun"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/sun"/>
+  <property name="dir.platform.ext.common.werken"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/werken"/>
+  <property name="dir.platform.ext.common.yworks"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/yworks"/>
+  <property name="dir.platform.ext.common.xmlbeans"
+            value="${dir.platform.ext.common.apache}/xmlbeans/jars"/>
+  <property name="dir.platform.ext.common.slf4j"
+            value="${dir.platform.ext.common}/${std.build.dependency_artifacts}/slf4j"/>
+  <property name="dir.platform.ext.common.odata4j"
+            value="${dir.platform.ext.common.google}/odata4j"/>
+  <property name="dir.platform.ext.common.core4j"
+            value="${dir.platform.ext.common.google}/core4j"/>
+  <property name="dir.platform.ext.common.sencha.touch"
+            value="${dir.platform.ext.common.sencha}/touch"/>
+  <property name="dir.platform.ext.common.yahoo.yuicompressor"
+            value="${dir.platform.ext.common.yahoo}/yuicompressor"/>
+  <property name="dir.platform.ext.common.ca.mobile.platform.client"
+            value="${dir.platform.ext.common.ca}/mobile.platform.client"/>
+
+  <path id="path.common.platform.utils">
+    <pathelement location="${dir.platform.ext.common}/${std.build.dependency_artifacts}/ca/common.platform.utils/jars/platform.utils.jar" />
+  </path>
+  
+  <path id="path.platform.ext.common">
+    <pathelement location="${dir.platform.ext.common}/${std.output.classes}" />
+  </path>
+
+  <path id="path.platform.ext.common.lib.org.freemarker">
+    <pathelement location="${dir.platform.ext.common.sourceforge}/freemarker/jars/freemarker.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.fragments.xmlbeans">
+    <pathelement location="${dir.platform.ext.common.sun}/jsr173/jars/jsr173-api.jar" />
+    <pathelement location="${dir.platform.ext.common.xmlbeans}/resolver.jar" />
+    <pathelement location="${dir.platform.ext.common.xmlbeans}/xbean.jar" />
+    <pathelement location="${dir.platform.ext.common.xmlbeans}/xbean_xpath.jar" />
+    <pathelement location="${dir.platform.ext.common.xmlbeans}/xmlpublic.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.activation">
+    <pathelement location="${dir.platform.ext.common.sun}/jaf/jars/activation.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.annotations-api">
+    <pathelement location="${dir.platform.ext.common.apache}/tomcat/jars/annotations-api.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.apache.ant">
+    <pathelement location="${dir.platform.ext.common.ant}/ant.jar" />
+    <pathelement location="${dir.platform.ext.common.ant}/ant-launcher.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.apache.batik">
+    <pathelement location="${dir.platform.ext.common.batik}/batik-awt-util.jar" />
+    <pathelement location="${dir.platform.ext.common.batik}/batik-bridge.jar" />
+    <pathelement location="${dir.platform.ext.common.batik}/batik-css.jar" />
+    <pathelement location="${dir.platform.ext.common.batik}/batik-dom.jar" />
+    <pathelement location="${dir.platform.ext.common.batik}/batik-ext.jar" />
+    <pathelement location="${dir.platform.ext.common.batik}/batik-gvt.jar" />
+    <pathelement location="${dir.platform.ext.common.batik}/batik-parser.jar" />
+    <pathelement location="${dir.platform.ext.common.batik}/batik-script.jar" />
+    <pathelement location="${dir.platform.ext.common.batik}/batik-svg-dom.jar" />
+    <pathelement location="${dir.platform.ext.common.batik}/batik-svggen.jar" />
+    <pathelement location="${dir.platform.ext.common.batik}/batik-transcoder.jar" />
+    <pathelement location="${dir.platform.ext.common.batik}/batik-util.jar" />
+    <pathelement location="${dir.platform.ext.common.batik}/batik-xml.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.apache.commons.beanutils">
+    <pathelement location="${dir.platform.ext.common.apache}/commons-beanutils/jars/commons-beanutils-bean-collections.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/commons-beanutils/jars/commons-beanutils-core.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/commons-beanutils/jars/commons-beanutils.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.apache.commons.cli">
+    <pathelement location="${dir.platform.ext.common.apache}/commons-cli/jars/commons-cli.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.apache.commons.codec">
+    <pathelement location="${dir.platform.ext.common.apache}/commons-codec/jars/commons-codec.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.apache.commons.collections">
+    <pathelement location="${dir.platform.ext.common.apache}/commons-collections/jars/commons-collections.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.apache.commons.digester">
+    <pathelement location="${dir.platform.ext.common.apache}/commons-digester/jars/commons-digester.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.apache.commons.discovery">
+    <pathelement location="${dir.platform.ext.common.apache}/commons-discovery/jars/commons-discovery.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.apache.commons.fileupload">
+    <pathelement location="${dir.platform.ext.common.apache}/commons-fileupload/jars/commons-fileupload.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.apache.commons.httpclient">
+    <pathelement location="${dir.platform.ext.common.apache}/commons-httpclient/jars/commons-httpclient.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.apache.commons.jelly"> 
+    <pathelement location="${dir.platform.ext.common.apache}/commons-jelly/jars/commons-jelly.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/commons-jelly/jars/commons-jelly-tags-bean.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/commons-jelly/jars/commons-jelly-tags-define.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/commons-jelly/jars/commons-jelly-tags-dynabean.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/commons-jelly/jars/commons-jelly-tags-email.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/commons-jelly/jars/commons-jelly-tags-fmt.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/commons-jelly/jars/commons-jelly-tags-interaction.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/commons-jelly/jars/commons-jelly-tags-jsl.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/commons-jelly/jars/commons-jelly-tags-junit.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/commons-jelly/jars/commons-jelly-tags-log.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/commons-jelly/jars/commons-jelly-tags-sql.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/commons-jelly/jars/commons-jelly-tags-swing.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/commons-jelly/jars/commons-jelly-tags-util.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/commons-jelly/jars/commons-jelly-tags-xml.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.apache.commons.jexl">
+    <pathelement location="${dir.platform.ext.common.apache}/commons-jexl/jars/commons-jexl.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.apache.commons.lang">
+    <pathelement location="${dir.platform.ext.common.apache}/commons-lang/jars/commons-lang.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.apache.commons.logging">
+    <pathelement location="${dir.platform.ext.common.apache}/commons-logging/jars/commons-logging.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.apache.commons.net">
+    <pathelement location="${dir.platform.ext.common.apache}/commons-net/jars/commons-net.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.castor">
+    <!--
+      This unusual location is a consequence of the fact that jars on the classpath can't be published to Ivy.  Since
+      we publish this jar to Ivy, we have to have a copy that we use on the classpath.
+    -->
+    <pathelement location="${dir.platform.ext.common}/build/temp/castor.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.datadirect">
+    <pathelement location="${dir.platform.ext.common.database-driver}/c-base.jar" />
+    <pathelement location="${dir.platform.ext.common.database-driver}/c-clarity.jar" />
+    <pathelement location="${dir.platform.ext.common.database-driver}/c-oracle.jar" />
+    <pathelement location="${dir.platform.ext.common.database-driver}/c-spy.jar" />
+    <pathelement location="${dir.platform.ext.common.database-driver}/c-sqlserver.jar" />
+    <pathelement location="${dir.platform.ext.common.database-driver}/c-sybase.jar" />
+    <pathelement location="${dir.platform.ext.common.database-driver}/c-util.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.dom4j">
+    <pathelement location="${dir.platform.ext.common.sourceforge}/dom4j/jars/dom4j.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.forehead">
+    <pathelement location="${dir.platform.ext.common.werken}/forehead/jars/forehead.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.httpunit">
+    <pathelement location="${dir.platform.ext.common.sourceforge}/httpunit/jars/httpunit.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.jakarta.poi">
+    <pathelement location="${dir.platform.ext.common.apache}/poi/jars/poi.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/poi/jars/poi-scratchpad.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/poi/jars/poi-ooxml.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/poi/jars/poi-ooxml-schemas.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.jaxb.libs">
+    <pathelement location="${dir.platform.ext.common.sun}/jaxb/jars/jaxb1-impl.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.jaxen">
+    <pathelement location="${dir.platform.ext.common.codehaus}/jaxen/jars/jaxen-core.jar" />
+    <pathelement location="${dir.platform.ext.common.codehaus}/jaxen/jars/jaxen-dom.jar" />
+    <pathelement location="${dir.platform.ext.common.codehaus}/jaxen/jars/jaxen-jdom.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.jep">
+    <pathelement location="${dir.platform.ext.common.singular}/jep/jars/jep.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.jdom">
+    <pathelement location="${dir.platform.ext.common.jdom}/jdom/jars/jdom.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.jgroups">
+    <pathelement location="${dir.platform.ext.common.sourceforge}/jgroups/jars/jgroups.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.cryptoj">
+    <pathelement location="${dir.platform.ext.common.rsa}/bsafe/jars/cryptojcommon.jar" />
+    <pathelement location="${dir.platform.ext.common.rsa}/bsafe/jars/jcmFIPS.jar" />
+    <pathelement location="${dir.platform.ext.common.rsa}/bsafe/jars/cryptojce.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.json">
+    <pathelement location="${dir.platform.ext.common.json}/json/jars/json.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.ldapbp">
+    <pathelement location="${dir.platform.ext.common.sun}/jndi-ldap-service-provider/jars/ldapbp.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.lucene">
+    <pathelement location="${dir.platform.ext.common.apache}/lucene/jars/lucene-core.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.mail">
+    <pathelement location="${dir.platform.ext.common.sun}/javamail/jars/mail.jar" />
+  </path>
+  
+  <path id="path.platform.ext.common.mozilla.rhino">
+    <pathelement location="${dir.platform.ext.common.mozilla}/rhino/jars/js.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.oscache">
+    <pathelement location="${dir.platform.ext.common.opensymphony}/oscache/jars/oscache.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.pdfbox">
+    <pathelement location="${dir.platform.ext.common.sourceforge}/pdfbox/jars/pdfbox.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.proxool">
+    <pathelement location="${dir.platform.ext.common.sourceforge}/proxool/jars/proxool.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.relaxng">
+    <pathelement location="${dir.platform.ext.common.sourceforge}/relaxng/jars/relaxngDatatype.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.saaj">
+    <pathelement location="${dir.platform.ext.common.apache}/axis/jars/saaj.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.axis">
+    <pathelement location="${dir.platform.ext.common.apache}/axis/jars/axis.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.saxon">
+    <pathelement location="${dir.platform.ext.common.saxon}/saxon.jar" />
+    <pathelement location="${dir.platform.ext.common.saxon}/saxon-dom.jar" />
+    <pathelement location="${dir.platform.ext.common.saxon}/saxon-jdom.jar" />
+    <pathelement location="${dir.platform.ext.common.saxon}/saxon-sql.jar" />
+    <pathelement location="${dir.platform.ext.common.saxon}/saxon-xom.jar" />
+    <pathelement location="${dir.platform.ext.common.saxon}/saxon-xpath.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.saxpath">
+    <pathelement location="${dir.platform.ext.common.sourceforge}/saxpath/jars/saxpath.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.spring-base">
+    <pathelement location="${dir.platform.ext.common.sourceforge}/spring-framework/jars/spring.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.spring-test">
+    <pathelement location="${dir.platform.ext.common.sourceforge}/spring-framework/jars/spring-test.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.servlet-api">
+    <pathelement location="${dir.platform.ext.common.apache.tomcat}/jars/servlet-api.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.catalina">
+    <pathelement location="${dir.platform.ext.common.apache.tomcat}/jars/catalina.jar"/>
+  </path>
+
+  <path id="path.platform.ext.common.soap">
+    <pathelement location="${dir.platform.ext.common.apache}/soap-DEFUNCT/jars/soap.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.y">
+    <pathelement location="${dir.platform.ext.common.yworks}/yfiles/jars/y.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.ysvg">
+    <pathelement location="${dir.platform.ext.common.yworks}/ysvg/jars/ysvg.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.xerces">
+    <pathelement location="${dir.platform.ext.common.apache}/xerces-j/jars/xercesImpl.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/xerces-j/jars/xml-apis.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.xfire">
+    <pathelement location="${dir.platform.ext.common.codehaus}/xfire/jars/xfire-all.jar" />
+    <pathelement location="${dir.platform.ext.common.codehaus}/xfire/jars/xfire-jsr181-api.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.xog-client">
+    <path refid="path.platform.ext.common.activation"/>
+    <path refid="path.platform.ext.common.castor"/>
+    <path refid="path.platform.ext.common.forehead"/>
+    <path refid="path.platform.ext.common.jdom"/>
+    <path refid="path.platform.ext.common.mail"/>
+    <pathelement location="${dir.platform.ext.common.saxon}/saxon.jar" />
+    <path refid="path.platform.ext.common.saxpath"/>
+    <path refid="path.platform.ext.common.soap"/>
+    <path refid="path.platform.ext.common.xerces"/>
+  </path>
+
+  <path id="path.platform.ext.common.wsdl4j">
+    <pathelement location="${dir.platform.ext.common.sourceforge}/wsdl4j/jars/wsdl4j.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.watij">
+    <pathelement location="${dir.platform.ext.common.sourceforge}/watij/jars/watij.jar" />
+    <pathelement location="${dir.platform.ext.common.sourceforge}/watij/jars/comfyj.jar"/>
+    <pathelement location="${dir.platform.ext.common.sourceforge}/watij/jars/jexplorer.jar"/>
+    <pathelement location="${dir.platform.ext.common.sourceforge}/watij/jars/jniwrap.jar"/>
+    <pathelement location="${dir.platform.ext.common.sourceforge}/watij/jars/mshtml.jar"/>
+    <pathelement location="${dir.platform.ext.common.sourceforge}/watij/jars/nekohtml.jar"/>
+    <pathelement location="${dir.platform.ext.common.sourceforge}/watij/jars/resolver.jar"/>
+    <pathelement location="${dir.platform.ext.common.sourceforge}/watij/jars/watijcom.jar"/>
+    <pathelement location="${dir.platform.ext.common.sourceforge}/watij/jars/winpack.jar"/>
+  </path>
+
+  <path id="path.platform.ext.common.regexp">
+    <pathelement location="${dir.platform.ext.common.apache}/jakarta-regexp/jars/jakarta-regexp.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.log4j">
+    <pathelement location="${dir.platform.ext.common.apache}/log4j/jars/log4j.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.tomcat.jasper">
+    <pathelement location="${dir.platform.ext.common.apache}/tomcat/jars/jsp-api.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/tomcat/jars/jasper.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/tomcat/jars/jasper-el.jar" />
+    <pathelement location="${dir.platform.ext.common.apache}/tomcat/jars/jasper-jdt.jar" />
+  </path>
+
+  <path id="path.platform.ext.common.tomcat.util">
+    <pathelement location="${dir.platform.ext.common.apache.tomcat}/jars/tomcat-util.jar"/>
+  </path>
+
+  <path id="path.platform.ext.osgi.lib.org.apache.jasper">
+    <pathelement location="${dir.platform.ext.common.apache}/tomcat/osgi-modules/org.apache.jasper.jar" />
+  </path>
+
+  <path id="path.platform.ext.osgi.lib.org.eclipse.equinox.common">
+    <pathelement location="${dir.platform.ext.common.eclipse}/equinox.common/osgi-modules/org.eclipse.equinox.common.jar" />
+  </path>
+
+  <path id="path.platform.ext.osgi.lib.org.eclipse.equinox.http.registry">
+    <pathelement location="${dir.platform.ext.common.eclipse}/equinox.http.registry/osgi-modules/org.eclipse.equinox.http.registry.jar" />
+  </path>
+
+  <path id="path.platform.ext.osgi.lib.org.eclipse.equinox.http.servlet">
+    <pathelement location="${dir.platform.ext.common.eclipse}/equinox.http.servlet/osgi-modules/org.eclipse.equinox.http.servlet.jar" />
+  </path>
+
+  <path id="path.platform.ext.osgi.lib.org.eclipse.equinox.jsp.jasper">
+    <pathelement location="${dir.platform.ext.common.eclipse}/equinox.jsp.jasper/osgi-modules/org.eclipse.equinox.jsp.jasper.jar" />
+  </path>
+
+  <path id="path.platform.ext.osgi.lib.org.eclipse.equinox.launcher">
+    <pathelement location="${dir.platform.ext.common.eclipse}/equinox.launcher/osgi-modules/org.eclipse.equinox.launcher.jar" />
+  </path>
+
+  <path id="path.platform.ext.osgi.lib.org.eclipse.equinox.registry">
+    <pathelement location="${dir.platform.ext.common.eclipse}/equinox.registry/osgi-modules/org.eclipse.equinox.registry.jar" />
+  </path>
+
+  <path id="path.platform.ext.osgi.lib.org.eclipse.osgi">
+    <pathelement location="${dir.platform.ext.common.eclipse}/osgi/osgi-modules/org.eclipse.osgi.jar" />
+  </path>
+
+  <path id="path.platform.ext.osgi.lib.org.eclipse.osgi.services">
+    <pathelement location="${dir.platform.ext.common.eclipse}/osgi.services/osgi-modules/org.eclipse.osgi.services.jar" />
+  </path>
+
+  <path id="path.platform.ext.osgi.lib.org.eclipse.equinox.log">
+    <pathelement location="${dir.platform.ext.common.eclipse}/equinox.log/osgi-modules/org.eclipse.equinox.log.jar" />
+  </path>
+
+  <path id="path.platform.ext.osgi.lib.org.eclipse.equinox.ds">
+    <pathelement location="${dir.platform.ext.common.eclipse}/equinox.ds/osgi-modules/org.eclipse.equinox.ds.jar" />
+  </path>
+  <path id="path.platform.ext.common.slf4j">
+    <pathelement location="${dir.platform.ext.common.slf4j}/slf4j/jars/slf4j-api.jar" />
+    <pathelement location="${dir.platform.ext.common.slf4j}/slf4j/jars/slf4j-jdk14.jar" />
+  </path>
+  
+  <path id="path.platform.ext.jdom">
+    <pathelement location="${dir.platform.ext}/lib/jdom.jar" />
+  </path> 
+  
+  <path id="path.platform.ext.gwt2">
+    <pathelement location="${dir.platform.ext}/build/lib/gwt2/gwt-dev.jar"/>
+    <pathelement location="${dir.platform.ext}/build/lib/gwt2/gwt-user.jar"/>
+    <pathelement location="${dir.platform.ext}/build/lib/gwt2/gxt.jar"/>
+  </path> 
+    
+  <path id="path.platform.ext.spring">
+    <pathelement location="${dir.platform.ext}/lib/spring-core.jar" />
+    <pathelement location="${dir.platform.ext}/lib/spring-test.jar" />
+  </path>   
+
+  <path id="path.platform.ext.httpclient">
+    <pathelement location="${dir.platform.ext}/lib/httpclient-4.3.2.jar" />
+    <pathelement location="${dir.platform.ext}/lib/httpcore-4.3.1.jar" />
+  </path>
+  <path id="path.platform.ext.restlet">
+    <pathelement location="${dir.platform.ext}/lib/org.restlet.jar" />
+    <pathelement location="${dir.platform.ext}/lib/org.restlet.ext.servlet.jar" />
+    <pathelement location="${dir.platform.ext}/lib/org.restlet.ext.jaxrs.jar" />
+  </path>   
+  
+  <path id="path.platform.ext.sun.jsr311">
+    <pathelement location="${dir.platform.ext.common.sun}/jsr311/jars/jsr311-api.jar" />
+  </path>  
+  <path id="path.platform.ext.codehaus.jettison">
+	  <pathelement location="${dir.platform.ext.common.codehaus}/jettison/jars/jettison.jar" />
+  </path>
+	
+  <!-- compile time references -->
+  <path id="path.platform.ext.common.cxf">
+    <pathelement location="${dir.platform.ext.common.apache}/cxf/jars/cxf.jar"/>
+    <path refid="path.platform.ext.codehaus.jettison"/>   <!-- earlier with cxf.ca38 this was 'jettison-1.0.1.jar' and now it's 'jettison-1.3.2.jar' -->
+    <path refid="path.platform.ext.sun.jsr311"/>          <!-- earlier with cxf.ca38 this was 'jsr311-api-1.0.jar' and now it's 'jsr311-api-1.1.1.jar' -->
+    	
+    <path refid="path.platform.ext.spring"/>
+    <path refid="path.platform.ext.common.annotations-api"/>
+    <path refid="path.platform.ext.jdom"/>
+    
+  </path>
+  
+  <!-- runtime time references -->
+  <path id="path.platform.ext.common.cxf.runtime">
+    <fileset dir="${dir.platform.ext.common.apache}/cxf/jars" includes="*.jar">
+      <exclude name="cxf-manifest.jar"/>
+    </fileset>
+    <fileset dir="${dir.build}/ext/build/lib" includes="*.jar"/>
+    <pathelement location="${dir.build}/dms/classes" />
+    <pathelement location="${dir.build}/ore/classes" />
+  	<path refid="path.platform.ext.codehaus.jettison"/>
+  	<path refid="path.platform.ext.sun.jsr311"/>
+  </path>
+  
+  <path id="path.platform.ext.common.cglib">
+      <pathelement location="${dir.platform.ext.common.sourceforge}/cglib/jars/cglib.jar" />
+  </path>
+
+  <path id="path.platform.ext.javaassist">
+    <fileset dir="${dir.build}/ext/lib" includes="javassist.jar"/>
+  </path>
+
+  <path id="path.platform.ext.basic.runtime">
+    <fileset dir="${dir.build}/ext/lib" includes="*.jar"/>
+    <fileset dir="${dir.build}/ext/build/lib" includes="*.jar"/>
+  </path>
+
+  <path id="path.platform.ext.reporting.bo">
+    <pathelement location="${dir.platform.ext}/lib/activation.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/activation-1.1.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/axis2-kernel-1.3.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/backport-util-concurrent-2.2.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/biarengine.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/biplugins.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/boconfig.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/cecore.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/celib.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/ceplugins_core.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/ceplugins_cr.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/cereports.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/cesession.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/ceutils.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/corbaidl.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/derby.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/ebus405.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/jtools.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/logging.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/rasapp.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/rascore.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/rebean.common.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/rebean.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/rebean.wi.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/Serialization.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/SL_plugins.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/wilog.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/xbean.jar"/>
+    <pathelement location="${dir.platform.ext}/lib/xpp3.jar"/>
+  </path>
+
+  <path id="path.platform.ext.test.testng">
+    <pathelement location="${dir.platform.ext}/test/lib/testng.jar" />
+  </path>   
+  <path id="path.platform.ext.test.customlib">
+    <pathelement location="${dir.platform.ext}/test/lib/Jama-1.0.2.jar" />
+  </path>
+  <path id="path.platform.ext.test.watij">
+    <pathelement location="${dir.platform.ext}/test/lib/watij.jar" />
+  </path> 
+  <path id="path.platform.ext.test.selenium">
+    <pathelement location="${dir.platform.ext}/lib/test/selenium/selenium.jar" />
+	<pathelement location="${dir.platform.ext}/lib/test/selenium/client-standalone.jar" />
+  </path>
+  
+  <path id="path.platform.ext.google.odata">
+    <pathelement location="${dir.platform.ext.common.odata4j}/jars/odata4j-core.jar" />
+    <pathelement location="${dir.platform.ext.common.odata4j}/jars/odata4j-cxf.jar" />
+    <pathelement location="${dir.platform.ext.common.core4j}/jars/core4j.jar" />
+    <pathelement location="${dir.platform.ext.common.sourceforge}/joda-time/jars/joda-time.jar" />
+  </path>
+  
+  <path id="path.platform.ext.google.odata.test.client">
+    <pathelement location="${dir.platform.ext.common.odata4j}/jars/odata4j-nojpabundle.jar" />
+  </path>
+  
+  <property name="file.platform.ext.common.yahoo.yuicompressor.jar"
+            value="${dir.platform.ext.common.yahoo.yuicompressor}/jars/yuicompressor.jar"/>
+  <path id="path.platform.ext.common.yahoo.yuicompressor">
+    <pathelement location="${dir.platform.ext.common.yahoo.yuicompressor}/jars/yuicompressor.jar" />
+  </path>
+  
+</project>
