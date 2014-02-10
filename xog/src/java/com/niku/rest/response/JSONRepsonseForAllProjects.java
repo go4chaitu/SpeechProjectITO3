@@ -16,13 +16,15 @@ public class JSONRepsonseForAllProjects extends AbstractJSONResponse
     StringBuffer outputContent = new StringBuffer();
     outputContent = outputContent.append( "There are " );
     List<Map<String, String>> result = generateSummary( speechText_, sessionCookie_ );
+    int count = 0;
     if( result == null || result.size() == 0 )
     {
       outputContent = outputContent.append( "no projects" );
     }
     for( Map<String, String> entry : result )
     {
-      outputContent = outputContent.append( " " ).append( entry.get( "value" ) ).append( " " ).append( " projects " ).append( entry.get( "label" ) );
+      count++;
+      outputContent = outputContent.append( "\" " ).append( entry.get( "value" ) ).append( " \" " ).append( " projects " ).append( "\" " ).append( entry.get( "label" )).append( "\"" ).append( (result.size() > count)?",":"" );
     }
     outputContent = outputContent.append( " found." );
     return outputContent.toString();
